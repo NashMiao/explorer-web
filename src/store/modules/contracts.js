@@ -76,11 +76,7 @@ export default {
     GetContractTx({dispatch, commit}, $param) {
       var url = ""
       /* 存在直接从搜索框进入的情况，此时无法得知合约的type */
-      if($param.contractType == "all"){
-        url = '/contracts/'+$param.contractHash+'/transactions'
-      }else{
-        url = '/contracts/'+$param.contractType +'/'+$param.contractHash+'/transactions'
-      }
+      var url = '/contracts/'+$param.contractHash+'/transactions'
       return $httpService.get(url,{
         params: {
           page_size: $param.pageSize,

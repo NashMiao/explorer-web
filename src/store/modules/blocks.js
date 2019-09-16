@@ -27,7 +27,7 @@ export default {
 
         // 将bookkeeper拆成数组
         for (let index in list) {
-          list[index].BookKeeper = list[index].bookkeepers.split('&')
+          list[index].BookKeeper = list[index].bookkeepers;
         }
 
         commit({
@@ -48,7 +48,7 @@ export default {
         let blockData = msg.result;
 
         // 将bookkeeper拆成数组
-        blockData.BookKeeper = blockData.bookkeepers.split('&');
+        blockData.BookKeeper = blockData.bookkeepers;
 
         commit({
           type: types.SET_BLOCK_DETAIL_PAGE,

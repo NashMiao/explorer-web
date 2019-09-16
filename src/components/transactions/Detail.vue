@@ -123,7 +123,7 @@
             </p>
             <span class="font-size24 f-color font-Regular p_margin_bottom">{{ $t('all.description') }}:</span>
             <p class="font-size14 font-Regular p_margin_bottom">
-              {{txData.description}}
+              {{txData.detail.description}}
             </p>
           </div>
         </div>

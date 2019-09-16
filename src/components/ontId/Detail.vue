@@ -4,23 +4,23 @@
     <detail-title :name="$t('ontIdDetail.name')" :val="$route.params.ontid"></detail-title>
 
     <!-- Owners info -->
-    <div class="row" v-if="haveData && Ddo.Owners">
+    <div class="row" v-if="haveData && Ddo.owners">
       <div class="col">
         <div class="detail-col">
           <p class="font-blod">{{ $t('ontIdDetail.owner') }}</p>
-          <div class="row" v-for="owner in Ddo.Owners">
+          <div class="row" v-for="owner in Ddo.owners">
             <div class="col">
               <div class="font-size14 font-Regular normal_color txt-overflow">
-                <p><span class="font-blod">Type: </span>{{owner.Type}}</p>
+                <p><span class="font-blod">Type: </span>{{owner.type}}</p>
               </div>
               <div class="font-size14 font-Regular normal_color txt-overflow">
-                <p><span class="font-blod">Curve: </span>{{owner.Curve}}</p>
+                <p><span class="font-blod">Curve: </span>{{owner.curve}}</p>
               </div>
               <div class="font-size14 font-Regular normal_color txt-overflow">
-                <p><span class="font-blod">Value: </span>{{owner.Value}}</p>
+                <p><span class="font-blod">Value: </span>{{owner.value}}</p>
               </div>
               <div class="font-size14 font-Regular normal_color txt-overflow">
-                <p><span class="font-blod">PublicKeyId: </span>{{owner.PubKeyId}}</p>
+                <p><span class="font-blod">PublicKeyId: </span>{{owner.pub_key_id}}</p>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
                   {{tx.tx_hash.substr(0,4) + '...' + tx.tx_hash.substr(60)}}
                 </td>
                 <td class="font-size14 font-Regular normal_color ">
-                  {{getOntIDEvent(tx.description)}}
+                  {{tx.detail.description}}
                 </td>
                 <td class="font-size14 font-Regular normal_color">
                   {{tx.fee}}

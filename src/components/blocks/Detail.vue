@@ -86,7 +86,7 @@
         return [
           {name: this.$t('blockDetail.hash'), val: this.block.block_hash, rows: 2},
           {name: this.$t('blockDetail.keeper'), val: this.block.BookKeeper, rows: 2},
-          {name: this.$t('blockDetail.merkle'), val: this.block.txs_root, rows: 2},
+          {name: this.$t('blockDetail.merkle'), val: this.block.merkle_root, rows: 2},
           {name: this.$t('blockDetail.Consensus'), val: this.block.consensus_data, rows: 2},
         ]
       },

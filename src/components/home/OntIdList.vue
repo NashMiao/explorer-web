@@ -26,7 +26,7 @@
         </div>
         <div class="row padding0 block-item-sub-wrapper-s">
           <span :class="( index >4) ? ' block-item col-12 text-left padding0 font-size14 ':'block-item col-12 text-left padding0  font-size14 '"
-                >{{getOntIDEvent(OntId.description)}}</span>
+                >{{OntId.description}}</span>
         </div>
       </div>
     </div>

@@ -118,7 +118,7 @@ export default {
         commit({
           type: types.SET_ADDRESS_TX_PAGE,
           info: {
-            list: response.result,
+            list: response.result.content,
             total:
               response.result.length < Number($param.pageSize)
                 ? (Number($param.pageSize) * (Number($param.pageNumber) - 1)) + response.result.length

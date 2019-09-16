@@ -42,7 +42,7 @@
                 {{ contract.contract_hash.substr(0,8) + '...' + contract.contract_hash.substr(32)}}
               </td>
               <td class="font-size14 font-Regular normal_color" style="width: 100px">{{ contract.tx_count }}</td>
-              <td class="font-size14 font-Regular normal_color" style="width: 180px">{{ $HelperTools.getTransDate(contract.update_time) }}</td>
+              <td class="font-size14 font-Regular normal_color" style="width: 180px">{{ $HelperTools.getTransDate(contract.create_time) }}</td>
             </tr>
             </tbody>
           </table>

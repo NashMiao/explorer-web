@@ -22,8 +22,8 @@
             <tbody>
             <tr v-for="OntId in ontIdList.list">
               <td class="font-size14 font-Regular important_color pointer" @click="toTransactionDetailPage(OntId.tx_hash)">{{OntId.tx_hash.substr(0,8) + '...' + OntId.tx_hash.substr(56)}}</td>
-              <td class="font-size14 font-Regular important_color pointer" @click="toOntIdDetailPage(OntId.ontid)">{{OntId.ontid.substr(0,10)}}...{{OntId.ontid.substr(35,46)}}</td>
-              <td class="font-size14 font-Regular normal_color">{{getOntIDEvent(OntId.description)}}</td>
+              <td class="font-size14 font-Regular important_color pointer" @click="toOntIdDetailPage(OntId.detail.ontid)">{{OntId.detail.ontid.substr(0,10)}}...{{OntId.detail.ontid.substr(35,46)}}</td>
+              <td class="font-size14 font-Regular normal_color">{{OntId.detail.description}}</td>
               <td class="font-size14 font-Regular normal_color">{{OntId.block_height}}</td>
               <td class="font-size14 font-Regular normal_color">{{Number(OntId.fee)}}</td>
               <td class="font-size14 font-Regular normal_color">{{$HelperTools.getTransDate(OntId.tx_time)}}</td>

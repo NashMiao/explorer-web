@@ -36,9 +36,9 @@
       <div class="row" v-if="$route.params.contractType === 'oep8'">
         <div class="b-detail-divider-line"></div>
         <div class="col-12 f-color">{{ $t('addressDetail.oep8Assets') }}</div>
-        <div class="col-3 text-center symbol-top" v-for="(item, index) in tokenData.symbol">
-          <div class="font-blod">{{ item }}</div>
-          <div class="important_color font-size24">{{ $HelperTools.toFinancialVal(tokenData.total_supply[index]) }}</div>
+        <div class="col-3 text-center symbol-top" v-for="(item, index) in tokenData.asset_list">
+          <div class="font-blod">{{ item.symbol }}</div>
+          <div class="important_color font-size24">{{ $HelperTools.toFinancialVal(item.total_supply) }}</div>
         </div>
       </div>
 
