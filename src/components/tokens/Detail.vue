@@ -179,7 +179,7 @@
                 </span>
                 <span class="pull-right font-size14 font-Regular copied-right" v-show="showCodeCopied">Copied!</span>
               </div>
-              <textarea id="scCodeData" readonly rows="6">{{ tokenData.code }}</textarea>
+              <textarea id="scCodeData" readonly rows="6">{{ contractData.code }}</textarea>
             </div>
           </div>
         </div>
@@ -196,7 +196,7 @@
                   </span>
               <span class="pull-right font-size14 font-ExtraLight copied-right" v-show="showABICopied">Copied!</span>
             </div>
-              <textarea id="scABIData" readonly rows="6">{{tokenData.abi}}</textarea>
+              <textarea id="scABIData" readonly rows="6">{{contractData.abi}}</textarea>
             </div>
           </div>
         </div>
@@ -213,14 +213,20 @@
   export default {
     name: "Token-Detail",
     mounted() {
-      this.getTokenData()
+      this.getTokenData();
+      this.getContractData();
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     watch: {
-      '$route': 'getTokenData',
+      '$route': ['getTokenData','getContractData'],
       'token':function(){
-        console.log("token",this.token)
-        this.tokenData = this.token.list
+        console.log("token",this.token);
+        this.tokenData = this.token.list;
+        this.contractData = this.contract.list;
+      },
+      'contract': function () {
+        console.log("contract",this.contract);
+        this.contractData = this.contract.list;
       },
       'contractTxList':function(){
         console.log("tokenTXList",this.contractTxList)
@@ -243,8 +249,9 @@
     },
     computed: {
       ...mapState({
-        contractTxList: state => state.Contracts.TxList,
         token: state => state.Tokens.Detail,
+        contract: state => state.Contracts.Detail,
+        contractTxList: state => state.Contracts.TxList,
       })
     },
     data() {
@@ -252,6 +259,7 @@
         showCodeCopied: false,
         showABICopied: false,
         tokenData:{},
+        contractData:{},
         tokenInfo:{},
         loadingFlag:false,
       }
@@ -262,6 +270,10 @@
         this.loadingFlag = false;
         this.$store.dispatch('GetToken', this.$route.params).then();
         this.$store.dispatch('GetContractTx', this.$route.params).then();
+      },
+      getContractData() {
+        this.contract.list = '';
+        this.$store.dispatch('GetContract', this.$route.params).then();
       },
       toTransDetailPage($TxnId) {
         if (this.$route.params.net === 'testnet') {
