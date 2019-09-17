@@ -160,7 +160,7 @@
                       </span>
                     </span>
                   </td>
-                  <td class="font-size14 font-Regular s-color">{{ tx.confirm_flag === 1 ? 'Confirmed' : 'Failed' }}</td>
+                  <td class="font-size14 font-Regular s-color">{{ tx.contract_exec_state === true ? 'Confirmed' : 'Failed' }}</td>
                   <td class="font-size14 font-Regular normal_color">{{$HelperTools.getTransDate(tx.tx_time)}}</td>
                 </tr>
                 </tbody>

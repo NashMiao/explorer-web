@@ -35,7 +35,7 @@
                 <td class="font-size14 important_color font-Regular pointer" @click="toTransDetailPage(tx.tx_hash)">
                   {{tx.tx_hash.substr(0,4) + '...' + tx.tx_hash.substr(60)}}
                 </td>
-                <td class="font-size14 s-color font-Regular" v-if="tx.confirm_flag === 1">
+                <td class="font-size14 s-color font-Regular" v-if="tx.contract_exec_state === true">
                   Confirmed
                 </td>
                 <td class="font-size14 f-color font-Regular" v-else>

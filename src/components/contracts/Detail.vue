@@ -7,13 +7,13 @@
         <div class="col">
           <div class="d-flex">
             <div class="img-sc-detail">
-              <img v-if="contract.list.logo !== ''" :src="contract.list.logo" alt="">
+              <img v-if="contractData.logo !== ''" :src="contractData.logo" alt="">
               <div v-else class="sc-no-logo-detail">C</div>
             </div>
             <div class="sc-detail-desc">
-              <h4>{{ contract.list.name }}</h4>
+              <h4>{{ contractData.name }}</h4>
               <div class="f-color word-break d-block height-100 font-size14">
-                <p class="word-break-word">{{ contract.list.description }}</p>
+                <p class="word-break-word">{{ contractData.description }}</p>
               </div>
             </div>
           </div>
@@ -22,16 +22,16 @@
 
     <detail-title-1 :name="$t('contracts.detail.hash')" :val="$route.params.contractHash"></detail-title-1>
 
-    <detail-block-3 :name1="$t('contracts.detail.creator')" :val1="contract.list.creator" :rows1="'1.2'"
-                    :params1="['address', contract.list.creator]"
+    <detail-block-3 :name1="$t('contracts.detail.creator')" :val1="contractData.creator" :rows1="'1.2'"
+                    :params1="['address', contractData.creator]"
                     :name2="$t('contracts.detail.createdTime')"
-                    :val2="$HelperTools.getTransDate(contract.list.create_time)" :rows2="'1.1'">
+                    :val2="$HelperTools.getTransDate(contractData.create_time)" :rows2="'1.1'">
     </detail-block-3>
 
 <!-- detail info -->
-      <div class="row font-size14" v-for="(scVal, scKey, scIndex) in contract.list.contact_info">
+      <div class="row font-size14" v-for="(scVal, scKey, scIndex) in contractData.contact_info">
         
-        <div v-if="scIndex !== contract.list.contact_info.length" class="sc-detail-divider-line"></div>
+        <div v-if="scIndex !== contractData.contact_info.length" class="sc-detail-divider-line"></div>
         <div class="col-2"><span class="normal_color">{{ scKey }}:</span></div>
         <div class="col-10">
           <span class="f-color word-break d-block height-100 font-size14">
@@ -50,13 +50,13 @@
               <i class="fa fa-info-circle" aria-hidden="true"></i>
             </a>
           </div>
-          <div class="tt-color font-size24 text-center line-height72">{{ $HelperTools.toFinancialVal(contract.list.address_count) }}</div>
+          <div class="tt-color font-size24 text-center line-height72">{{ contractData.address_count }}</div>
         </div>
       </div>
       <div class="vol-col">
         <div class="detail-col detail-col-middle">
           <div class="t-color">{{ $t('tokens.detail.txn') }}</div>
-          <div class="tt-color font-size24 text-center line-height72">{{ $HelperTools.toFinancialVal(contract.list.tx_count) }}</div>
+          <div class="tt-color font-size24 text-center line-height72">{{ contractData.tx_count }}</div>
         </div>
       </div>
       <div class="vol-col">
@@ -67,8 +67,8 @@
             </a>
           </div>
           <div class="tt-color font-size24 text-centerc volume-height">
-            <div class="volume-font">{{ $HelperTools.toFinancialVal(parseInt(contract.list.ont_sum)) + ' ONT'}}</div>
-            <div class="volume-font">{{$HelperTools.toFinancialVal(contract.list.ong_sum) + ' ONG'}}</div>
+            <div class="volume-font">{{ contractData.ont_sum + ' ONT'}}</div>
+            <div class="volume-font">{{ contractData.ong_sum + ' ONG'}}</div>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@
                       <span v-if="tx.tx_hash" @click="toTransDetailPage(tx.tx_hash)">{{tx.tx_hash.substr(0,16) + '...' + tx.tx_hash.substr(60)}}</span>
                     </td>
                     <td class="normal_color">{{Number(tx.fee).toString()}}</td>
-                    <td class="font-size14 s-color font-Regular" v-if="tx.confirm_flag === 1">
+                    <td class="font-size14 s-color font-Regular" v-if="tx.contract_exec_state === true">
                       Confirmed
                     </td>
                     <td class="font-size14 f-color font-Regular" v-else>
@@ -159,7 +159,7 @@
                 </span>
                 <span class="pull-right font-size14 font-ExtraLight copied-right" v-show="showCodeCopied">Copied!</span>
               </div>
-              <textarea id="scCodeData" readonly rows="6">{{ contract.list.code }}</textarea>
+              <textarea id="scCodeData" readonly rows="6">{{contractData.code}}</textarea>
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@
                   </span>
                 <span class="pull-right font-size14 font-ExtraLight copied-right" v-show="showABICopied">Copied!</span>
               </div>
-              <textarea id="scABIData" readonly rows="6">{{contract.list.abi}}</textarea>
+              <textarea id="scABIData" readonly rows="6">{{contractData.abi}}</textarea>
             </div>
           </div>
         </div>
@@ -222,7 +222,6 @@
     watch: {
       '$route': ['getContractData', 'getStatisticsData'],
       'contract':function(){
-      //  console.log(this.contract)
           if(this.$route.params.contractHash == "cae215265a5e348bfd603b8db22893aa74b42417"){
               this.contract.list.address_count = this.contract.list.address_count + 32620
               this.contract.list.total = this.contract.list.total + 63617
@@ -231,8 +230,19 @@
               cacuOng = cacuOng + 116055.79681789*1000000000
               this.contract.list.ont_sum = cacuOnt.toString()
               this.contract.list.ong_sum = (cacuOng/1000000000).toString()
-
           }
+          this.contractData = this.contract.list;
+          this.contractData.contact_info = {};
+          if(this.contractData.website !== ''){
+            this.contractData.contact_info['website'] = this.contractData.website;
+          }
+          if(this.contractData.github !== ''){
+            this.contractData.contact_info['github'] = this.contractData.github;
+          }
+          if(this.contractData.social_media !== ''){
+            this.contractData.contact_info['social_media'] = this.contractData.social_media;
+          }
+          console.log("contractData", this.contractData);
       },
       'contractTxList':function(){
         this.loadingFlag = true
@@ -248,6 +258,7 @@
     },
     data() {
       return {
+        contractData: {},
         showCodeCopied: false,
         showABICopied: false,
         hackReset: false,

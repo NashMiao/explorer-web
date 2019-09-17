@@ -56,7 +56,7 @@
         <div class="col">
           <div class="detail-col detail-col-right">
             <span class="f-color">{{ $t('txDetail.status') }}</span>
-            <span v-if="txData.confirm_flag === 1" class="s-color">{{ $t('all.confirmed') }}</span>
+            <span v-if="txData.contract_exec_state === true" class="s-color">{{ $t('all.confirmed') }}</span>
             <span v-else class="f-color">{{ $t('all.failed') }}</span>
           </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="row">
           <div class="col">
             <div class="f-color">{{ $t('txDetail.status') }}</div>
-            <div v-if="txData.confirm_flag === 1" class="s-color">{{ $t('all.confirmed') }}</div>
+            <div v-if="txData.contract_exec_state === true" class="s-color">{{ $t('all.confirmed') }}</div>
             <div v-else class="normal_color">{{ $t('all.failed') }}</div>
           </div>
         </div>
@@ -262,7 +262,7 @@
       '$route': 'getTxData',
       'txData': function () {
         /* console.log(this.txData) */
-        if (this.txData.confirm_flag === 1) {
+        if (this.txData.contract_exec_state === true) {
           this.getEventType(this.txData.event_type)
         } else {
           this.txflag = false;

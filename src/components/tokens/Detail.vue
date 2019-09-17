@@ -151,7 +151,7 @@
                       <img width="100px" :src="typeof(tx.json_url) === 'undefined' ? '' : tx.hd_image" alt="">
                     </td>
 
-                    <td class="font-size14 s-color font-Regular" v-if="tx.confirm_flag === 1">Confirmed</td>
+                    <td class="font-size14 s-color font-Regular" v-if="tx.contract_exec_state === true">Confirmed</td>
                     <td class="font-size14 f-color font-Regular" v-else>Failed</td>
 
                     <td class="font-size14 normal_color font-Regular">{{tx.block_height}}</td>

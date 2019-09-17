@@ -25,7 +25,7 @@
               <td class="important_color pointer" @click="toTransactionDetailPage(tx.tx_hash)">
                 {{tx.tx_hash.substr(0,8) + '...' + tx.tx_hash.substr(56)}}
               </td>
-              <td class="s-color">{{ tx.confirm_flag === 1 ? 'Confirmed' : 'Failed' }}</td>
+              <td class="s-color">{{ tx.contract_exec_state === true ? 'Confirmed' : 'Failed' }}</td>
               <!--<td class="s-color">{{ tx.TxnType === 208 ? 'Deploy' : 'Run' }}</td>-->
               <!--<td class="s-color">{{ tx.BlockIndex }}</td>-->
               <td class="normal_color">{{tx.block_height}}</td>
