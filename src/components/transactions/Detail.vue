@@ -175,7 +175,7 @@
         <tr>
           <td class="td11" style="padding: 34px 24px;">
             <p class="font-size24  p_margin_bottom n_color font-Regular">Description:</p>
-            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.description}}</p>
+            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.detail.description}}</p>
           </td>
         </tr>
         </tbody>
@@ -192,7 +192,7 @@
             <p class="font-size24  p_margin_bottom f-color font-Regular">OntId:</p>
             <p class="font-size14 important_color p_margin_bottom font-Regular pointer">{{txData.detail.ontid}}</p>
             <p class="font-size24  p_margin_bottom f-color font-Regular">Description:</p>
-            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.description}}</p>
+            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.detail.description}}</p>
           </td>
         </tr>
         </tbody>
@@ -206,7 +206,7 @@
         <tr>
           <td class="td11" style="padding: 34px 24px;">
             <p class="font-size24  p_margin_bottom f-color font-Regular">Description:</p>
-            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.description}}</p>
+            <p class="font-size14 f-color p_margin_bottom font-Regular">{{txData.detail.description}}</p>
           </td>
         </tr>
         </tbody>
@@ -284,8 +284,8 @@
       }),
       issuerData: function () {
         return [
-          {name: this.$t('txDetail.issuer'), val: this.txData.description.substr(12, 42), rows: 2},
-          {name: this.$t('all.description'), val: this.txData.description.substr(55), rows: 2}
+          {name: this.$t('txDetail.issuer'), val: this.txData.detail.ontid, rows: 2},
+          {name: this.$t('all.description'), val: this.txData.detail.description, rows: 2}
         ]
       }
     },
