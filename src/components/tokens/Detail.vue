@@ -145,10 +145,10 @@
 <!--                     <td v-if="$route.params.contractType === 'oep5'"
                         class="normal_color">{{ typeof(tx.json_url) === 'undefined' ? '' : tx.json_url.name }}</td> -->
                     <td v-if="$route.params.contractType === 'oep5' " 
-                        class="normal_color">{{ tx.hd_name }}</td>
+                        class="normal_color">{{ tx.detail.transfers[0].asset_name }}</td>
                     <td v-if="$route.params.contractType === 'oep5' " 
                         class="normal_color">
-                      <img width="100px" :src="typeof(tx.json_url) === 'undefined' ? '' : tx.hd_image" alt="">
+                      <img width="100px" :src="tx.detail.transfers[0].logo" alt="">
                     </td>
 
                     <td class="font-size14 s-color font-Regular" v-if="tx.contract_exec_state === true">Confirmed</td>
@@ -231,20 +231,6 @@
       'contractTxList':function(){
         console.log("tokenTXList",this.contractTxList)
         this.loadingFlag = true
-        if(this.$route.params.contractType === 'oep5'){
-          for(var i = 0;i<this.contractTxList.list.length;i++){
-            if(this.contractTxList.list[i].json_url){
-              for(var key in this.$HelperTools.strToJson(this.contractTxList.list[i].json_url)){
-                if(key =="name"){
-                  this.contractTxList.list[i].hd_name = this.$HelperTools.strToJson(this.contractTxList.list[i].json_url)[key]
-                }
-                if(key =="image"){
-                  this.contractTxList.list[i].hd_image = this.$HelperTools.strToJson(this.contractTxList.list[i].json_url)[key]
-                }
-              }
-            }
-          }
-        }
       }
     },
     computed: {
