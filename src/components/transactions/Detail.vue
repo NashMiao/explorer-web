@@ -261,9 +261,17 @@
     watch: {
       '$route': 'getTxData',
       'txData': function () {
-        /* console.log(this.txData) */
+        if(this.txData.transfer_invoke === true){
+          this.txflag = true;
+          this.idflag = false;
+          this.recordflag = false;
+          this.authflag = false;          
+          this.scflag = false;
+          return;
+        }
+
         if (this.txData.contract_exec_state === true) {
-          this.getEventType(this.txData.event_type)
+          this.getTxType(this.txData.tag)
         } else {
           this.txflag = false;
           this.idflag = false;
@@ -389,14 +397,15 @@
           })
         }
       },
-      getEventType($type){
-        if($type == 0 || $type == 2 || $type == 6){
+      getTxType($type){
           this.txflag= false
           this.idflag= false
           this.recordflag= false
           this.authflag= false        
           this.scflag= false        
-        }
+
+        // deploy tx
+
         if($type == 1){
           this.txflag= false
           this.idflag= false
@@ -404,26 +413,25 @@
           this.authflag= false        
           this.scflag= true        
         }
-        if($type == 5){
+
+        // claim record tx
+
+        if($type == 11){
           this.txflag= false
           this.idflag= false
           this.recordflag= true
           this.authflag= false          
           this.scflag= false        
         }
+
+        // ONT ID tx
+
         if($type == 4){
           this.txflag= false
           this.idflag= true
           this.recordflag= false
           this.authflag= false       
           this.scflag= false           
-        }
-        if($type == 3){
-          this.txflag= true
-          this.idflag= false
-          this.recordflag= false
-          this.authflag= false          
-          this.scflag= false        
         }
       }
     },
