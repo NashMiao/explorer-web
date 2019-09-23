@@ -222,7 +222,7 @@
             <div class="row ">
               <div class="col-lg-4 padding0-right" @click="toAddressDetailPage(tx.from_address)">{{tx.from_address}}</div>
               <div class="col-lg-1 ">>></div>
-              <div class="col-lg-2 ">{{toMoney(tx)}} {{getAssetName(tx.asset_name)}}</div>
+              <div class="col-lg-2 ">{{toMoney(tx)}} {{getAssetName(tx.symbol)}}</div>
               <div class="col-lg-1 ">>></div>
               <div class="col-lg-4 padding0-left" @click="toAddressDetailPage(tx.to_address)">{{tx.to_address}}</div>
             </div>
@@ -353,7 +353,7 @@
       },
       toMoney(txTmp) {
         /* console.log(txTmp) */
-        if (txTmp.asset_name === 'ont') {
+        if (txTmp.symbol === 'ont') {
           let num = txTmp.amount;
        //   return num.split('').reverse().join('').substr(10, 10).split('').reverse().join('')
           return Number(txTmp.amount)

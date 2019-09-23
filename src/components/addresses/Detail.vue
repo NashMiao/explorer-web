@@ -136,20 +136,20 @@
                     <span v-for="(tl,index) in tx.transfers">
                       <!--支出-->
                       <span class="expenditure-color" v-if="tl.from_address === $route.params.address">
-                        <span v-if="tl.asset_name.indexOf('pumpkin') > -1">
-                          {{ '-' + $HelperTools.toFinancialVal(tl.amount) + ' ' + $t('assetName.' + tl.asset_name ) }}
+                        <span v-if="tl.symbol.indexOf('pumpkin') > -1">
+                          {{ '-' + $HelperTools.toFinancialVal(tl.amount) + ' ' + $t('assetName.' + tl.symbol ) }}
                         </span>
                         <span v-else>
-                          {{ '-' + $HelperTools.toFinancialVal(tl.amount) + ' ' + tl.asset_name.toUpperCase() }}
+                          {{ '-' + $HelperTools.toFinancialVal(tl.amount) + ' ' + tl.symbol.toUpperCase() }}
                         </span>
                       </span>
                       <!--收入-->
                       <span class="income-color" v-else>
-                        <span v-if="tl.asset_name.indexOf('pumpkin') > -1">
-                          {{ $HelperTools.toFinancialVal(tl.amount) + ' ' + $t('assetName.' + tl.asset_name ) }}
+                        <span v-if="tl.symbol.indexOf('pumpkin') > -1">
+                          {{ $HelperTools.toFinancialVal(tl.amount) + ' ' + $t('assetName.' + tl.symbol ) }}
                         </span>
                         <span v-else>
-                          {{ $HelperTools.toFinancialVal(tl.amount) + ' ' + tl.asset_name.toUpperCase() }}
+                          {{ $HelperTools.toFinancialVal(tl.amount) + ' ' + tl.symbol.toUpperCase() }}
                         </span>
                       </span>
 
