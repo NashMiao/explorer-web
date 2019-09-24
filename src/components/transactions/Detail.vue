@@ -149,7 +149,7 @@
               <div class="row">
                 <div class="col pointer" @click="toAddressDetailPage(tx.from_address)">{{tx.from_address}}</div>
                 <div class="col">>></div>
-                <div class="col-4 text-center font-weight-bold font-size18">{{tx.amount}} <span class="text-uppercase">{{getAssetName(tx.asset_name)}}</span>
+                <div class="col-4 text-center font-weight-bold font-size18">{{tx.amount}} <span class="text-uppercase">{{getAssetName(tx.symbol)}}</span>
                 </div>
                 <div class="col text-right">>></div>
                 <div class="col text-right pointer" @click="toAddressDetailPage(tx.to_address)">{{tx.to_address}}</div>
@@ -315,28 +315,28 @@
         let realname = '';
 
         switch (name) {
-          case 'pumpkin01':
+          case 'REP':
             realname = this.$t('assetName.pumpkin01');
             break;
-          case 'pumpkin02':
+          case 'ORP':
             realname = this.$t('assetName.pumpkin02');
             break;
-          case 'pumpkin03':
+          case 'YEP':
             realname = this.$t('assetName.pumpkin03');
             break;
-          case 'pumpkin04':
+          case 'GRP':
             realname = this.$t('assetName.pumpkin04');
             break;
-          case 'pumpkin05':
+          case 'INP':
             realname = this.$t('assetName.pumpkin05');
             break;
-          case 'pumpkin06':
+          case 'BLP':
             realname = this.$t('assetName.pumpkin06');
             break;
-          case 'pumpkin07':
+          case 'PUP':
             realname = this.$t('assetName.pumpkin07');
             break;
-          case 'pumpkin08':
+          case 'GLP':
             realname = this.$t('assetName.pumpkin08');
             break;
           case 'ong':
