@@ -16,7 +16,7 @@
             <div style="width: 106px; height: 106px;">
               <img v-if="tokenData.logo !== ''" class="img-sc-detail" :src="tokenData.logo" alt="">
               <div v-else class="token-no-logo-detail">
-                {{ $route.params.type === 'oep4' ? tokenData.symbol : tokenData.name.substr(0, 2) }}
+                {{ $route.params.type === 'oep4' ? tokenData.symbol : tokenData.symbol }}
               </div>
             </div>
 
@@ -145,7 +145,7 @@
 <!--                     <td v-if="$route.params.contractType === 'oep5'"
                         class="normal_color">{{ typeof(tx.json_url) === 'undefined' ? '' : tx.json_url.name }}</td> -->
                     <td v-if="$route.params.contractType === 'oep5' " 
-                        class="normal_color">{{ tx.detail.transfers[0].asset_name }}</td>
+                        class="normal_color">{{ tx.detail.transfers[0].symbol }}</td>
                     <td v-if="$route.params.contractType === 'oep5' " 
                         class="normal_color">
                       <img width="100px" :src="tx.detail.transfers[0].logo" alt="">
