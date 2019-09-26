@@ -33,7 +33,7 @@ export default {
           type: types.SET_TRANSACTION_LIST_PAGE,
           info: {
             list: response.result.records,
-            total: response.result.total
+            total: response.result.range_total
           }
         })
       }).catch(error => {

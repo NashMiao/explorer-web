@@ -41,7 +41,7 @@ export default {
           type: types.SET_CONTRACTS_DATA,
           info: {
             list: response.result.records,
-            total: response.result.total
+            total: response.result.range_total
           }
         })
       }).catch(error => {
@@ -89,7 +89,7 @@ export default {
           type: types.SET_CONTRACT_TX_DATA,
           info: {
             list: response.result.records,
-            total: response.result.total
+            total: response.result.range_total
           }
         })
       }).catch(error => {
