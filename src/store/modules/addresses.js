@@ -119,10 +119,7 @@ export default {
           type: types.SET_ADDRESS_TX_PAGE,
           info: {
             list: response.result.records,
-            total:
-              response.result.length < Number($param.pageSize)
-                ? (Number($param.pageSize) * (Number($param.pageNumber) - 1)) + response.result.length
-                : Number($param.pageSize) * (Number($param.pageNumber) + 1)
+            total:response.result.range_total
           }
         })
       }).catch(error => {
