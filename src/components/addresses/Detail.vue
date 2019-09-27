@@ -313,12 +313,12 @@
         /* console.log(params) */
         params.contractType = 'native'
         this.$store.dispatch('GetAddressNativeDetail', params).then()
-        // params.contractType = 'oep4'
-        // this.$store.dispatch('GetAddressOep4Detail', params).then()
-        // params.contractType = 'oep5'
-        // this.$store.dispatch('GetAddressOep5Detail', params).then()
-        // params.contractType = 'oep8'
-        // this.$store.dispatch('GetAddressOep8Detail', params).then()
+        params.contractType = 'oep4'
+        this.$store.dispatch('GetAddressOep4Detail', params).then()
+        params.contractType = 'oep5'
+        this.$store.dispatch('GetAddressOep5Detail', params).then()
+        params.contractType = 'oep8'
+        this.$store.dispatch('GetAddressOep8Detail', params).then()
         if(params.assetName == "ALL"){
           this.$store.dispatch('GetAddressTX',params).then()
         }else{
