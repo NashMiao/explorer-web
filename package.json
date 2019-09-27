@@ -11,6 +11,7 @@
     "test": "npm run unit",
     "build": "rm -rf dist/ && NODE_ENV=production node build/build.js",
     "analyze": "NODE_ENV=production npm_config_report=true npm run build",
+    "predeploy":"rm -rf dist/ && NODE_ENV=production node build/build.js ",
     "deploy": "gh-pages -b gh-pages -d dist"
   },
   "dependencies": {
