@@ -302,6 +302,8 @@ let routes = [
 ];
 
 const router = new Router({
+  base: 'explorer-web',
+  // base: '/',
   mode: 'history',
   routes: routes
 });

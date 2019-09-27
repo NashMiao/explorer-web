@@ -12,7 +12,7 @@
     "build": "rm -rf dist/ && NODE_ENV=production node build/build.js",
     "analyze": "NODE_ENV=production npm_config_report=true npm run build",
     "predeploy":"rm -rf dist/ && NODE_ENV=production node build/build.js ",
-    "deploy": "NODE_ENV=production gh-pages -b gh-pages -d dist"
+    "deploy": "gh-pages -b gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^0.16.2",
