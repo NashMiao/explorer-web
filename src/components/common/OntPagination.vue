@@ -44,9 +44,9 @@
       return {
         pageSize: 0,
         currentPage: 0,
-        pageSizesTest:[10,20],
-        pageSizesMain:[10,20],
-        pageSizes:[10,20,30,50,100],
+        pageSizesTest:[10,20,30,40,50],
+        pageSizesMain:[10,20,30,40,50],
+        pageSizes:[10,20,30,40,50,100],
         options: [{
           value: 'ALL',
           label: 'ALL'
