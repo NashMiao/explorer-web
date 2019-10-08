@@ -36,34 +36,34 @@
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin01' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin01)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.redpumpkin)}}</div>
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin02' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin02)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.orangepumpkin)}}</div>
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin03' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin03)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.yellowpumpkin)}}</div>
             </div>
           </div>
 
           <div class="row pumpkin-color font-size14 text-center" style="margin-top: 20px">
             <div class="col">
               <div>{{ $t('assetName.pumpkin04' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin04)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.greenpumpkin)}}</div>
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin05' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin05)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.indigopumpkin)}}</div>
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin06' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin06)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.bluepumpkin)}}</div>
             </div>
             <div class="col">
               <div>{{ $t('assetName.pumpkin07' ) }}</div>
-              <div class="font-size24">{{zeroPlus(oep8AssetsVal.pumpkin07)}}</div>
+              <div class="font-size24">{{zeroPlus(oep8AssetsVal.purplepumpkin)}}</div>
             </div>
           </div>
         </div>
@@ -76,8 +76,8 @@
         <div class="detail-col">
           <span class="font-blod table1_item_title">{{ $t('addressDetail.oep4Assets') }}</span>
           <div v-for="(asset,index) in oep4AssetBalance"  class="row font-size14 oep-4-5-div">
-            <div class="table1_item_title font-Regular">
-              <span class="f-color">{{ asset.asset_name.toUpperCase() + ": " }}</span>
+            <div class="table1_item_title font-Regular">              
+              <span class="f-color">{{ asset.asset_symbol.toUpperCase() + ": " }}</span>
               <span class="important_color">{{parseFloat(asset.balance)}}</span>
             </div>
           </div>
@@ -91,7 +91,7 @@
           <span class="font-blod table1_item_title">{{ $t('addressDetail.oep5Assets') }}</span>
           <div v-for="(asset,index) in oep5AssetBalance"  class="row font-size14 oep-4-5-div">
             <div class="table1_item_title font-Regular">
-              <span class="f-color">{{ asset.asset_name.toUpperCase() + ": " }}</span>
+              <span class="f-color">{{ asset.asset_symbol.toUpperCase() + ": " }}</span>
               <span class="important_color">{{parseFloat(asset.balance)}}</span>
             </div>
           </div>
