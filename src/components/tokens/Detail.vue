@@ -91,8 +91,8 @@
             </a>
           </div>
           <div  class="important_color  text-center volume-height font-size24 " >
-            <div class="volume-font">{{tokenData.ont_sum + ' ONT'}}</div>
-            <div class="volume-font">{{tokenData.ong_sum + ' ONG'}}</div>
+            <div class="volume-font">{{ contractData.ont_sum + ' ONT'}}</div>
+            <div class="volume-font">{{ contractData.ong_sum + ' ONG'}}</div>
           </div>
         </div>
       </div>
