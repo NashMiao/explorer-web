@@ -50,7 +50,7 @@ let routes = [
     component: Home
   },
   {
-    path: '/explorer-web/',
+    path: '/',
     name: 'Home',
     component: Home
   },
